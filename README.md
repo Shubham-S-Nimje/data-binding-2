@@ -1,60 +1,76 @@
-# DataBinding2
+## Data Binding
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
+Data Binding is a mechanism that connects the template (HTML) and component (TS) files of a component.
 
-## Development server
+### Types of Data Binding
 
-To start a local development server, run:
+There are two types of Data Binding in Angular:
 
-```bash
-ng serve
+1. **One-Way Data Binding**
+2. **Two-Way Data Binding**
+
+#### 2. Two-Way Data Binding
+
+Two-Way Data Binding allows data to be shared between the component and the template in both directions. When the user updates the value in the UI, the model is also updated in the component, and vice versa.
+
+This is achieved using **ngModel**, which requires importing `FormsModule` in `app.module.ts`.
+
+##### Example:
+
+```typescript
+// app.component.ts
+import { Component } from "@angular/core";
+
+@Component({
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
+})
+export class AppComponent {
+  username: string = "Shubham";
+}
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```html
+<!-- app.component.html -->
+<input type="text" [(ngModel)]="username" />
+<p>Hello, {{username}}</p>
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Steps to Enable Two-Way Binding
 
-```bash
-ng generate --help
+1. **Import `FormsModule` in `app.module.ts`**
+
+```typescript
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule } from "@angular/forms"; // Import FormsModule
+import { AppComponent } from "./app.component";
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, FormsModule], // Add FormsModule here
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
 ```
 
-## Building
+2. **Use `[(ngModel)]` in the Template**
 
-To build the project run:
+In the HTML file, bind an input field to a component property using:
 
-```bash
-ng build
+```html
+<input type="text" [(ngModel)]="username" />
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Now, whenever the user types something in the input field, the value of `username` will automatically update in the component, and any change in the component will reflect in the UI.
 
-## Running unit tests
+### Summary
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+| Binding Type                    | Direction            | Syntax Example               |
+| ------------------------------- | -------------------- | ---------------------------- |
+| One-Way (Component to Template) | Component → Template | `{{ name }}` or `[property]` |
+| One-Way (Template to Component) | Template → Component | `(event)="method()"`         |
+| **Two-Way Data Binding**        | Component ⇄ Template | `[(ngModel)]="property"`     |
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-# data-binding-2
+---

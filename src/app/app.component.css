@@ -1,0 +1,130 @@
+.box {
+  box-shadow: 5px 10px 15px rgba(0, 0, 255, 0.3);
+  /* height: 70vh; */
+  display: flex;
+  gap: 10px;
+  width: 80vw;
+  max-width: 600px;
+  padding: 25px 25px;
+  background-color: #f8f1e4;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  margin: auto;
+}
+
+.imageList {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  overflow-x: auto;
+  padding: 10px;
+}
+
+.imageList img {
+  height: 100px;
+  width: 100%;
+  max-width: 180px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.left,
+.right {
+  width: 50%;
+  padding: 20px;
+  border: 1px solid #8a2be2;
+  height: 100%;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.right img {
+  object-fit: cover;
+  width: 100%;
+  /* max-width: 180px; */
+  /* border-radius: 10px; */
+  /* box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2); */
+}
+
+.left p {
+  font-weight: bold;
+}
+
+.meme {
+  border: 2px solid #000000;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.meme p {
+  text-align: center;
+  margin: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+input {
+  /* height: 45px; */
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: #8a2be2;
+  box-shadow: 0 0 8px rgba(138, 43, 226, 0.3);
+}
+
+button {
+  height: 45px;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #8a2be2;
+  background-color: #8a2be2;
+  color: #fff;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #6a1bbd;
+  border-color: #6a1bbd;
+  box-shadow: 0 4px 8px rgba(138, 43, 226, 0.3);
+}
+
+button:active {
+  background-color: #5a149a;
+  transform: scale(0.98);
+}
+
+button:disabled {
+  background-color: #ccc !important;
+  border-color: #bbb !important;
+  color: #777 !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
